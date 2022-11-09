@@ -321,7 +321,10 @@ html .m-mt60{margin-top: 60px;}
     .trust-review.owl-carousel .owl-dots {  bottom: -13px;   right: 0;    left: 0;   text-align: center;  margin: 0 auto;}
     .ree-card { padding: 30px 20px;}
     .m-center{text-align: center;}
-    .dskt-logo .nav-brand img {  max-height: fit-content; max-width: 80px;    }
+    .dskt-logo .nav-brand img {  max-height: 50px; max-width: 80px;    }
+    .dskt-logo .brand-text {
+        font-size: 18px;
+    }
 html body .pb120 { padding-bottom: 60px; }
 html body .pt90 { padding-top: 60px; }
 .sec-pad {padding-top: 60px;  padding-bottom: 60px;  }

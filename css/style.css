@@ -348,7 +348,10 @@ float: left;
 line-height: 85px;
 }
 .dskt-logo .nav-brand img {
-max-height: 75px;
+max-height: 55px;
+}
+.dskt-logo .brand-text {
+    font-size: 24px;
 }
 .ree-nav .nav-list li a.menu-links {
 font-size: 17px;

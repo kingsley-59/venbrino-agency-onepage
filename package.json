@@ -1,0 +1,18 @@
+{
+  "name": "VenbrinoDev",
+  "version": "1.0.0",
+  "description": "Single page website for venbrino dev agency",
+  "main": "index.js",
+  "repository": "https://github.com/kingsley-59/venbrino-agency-onepage.git",
+  "author": "Kingsley <divine10646@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon ."
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "nodemailer": "^6.8.0",
+    "nodemailer-smtp-transport": "^2.7.4"
+  }
+}

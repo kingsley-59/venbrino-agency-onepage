@@ -19,7 +19,7 @@
     disableAt: false,
     customToggle: '.toggle',
     levelSpacing: 40,
-    navTitle: 'Reevan Menu',  
+    navTitle: 'Venbrinodevs',  
     levelTitles: true,
     labelClose: false,
     levelTitleAsBack: true,   

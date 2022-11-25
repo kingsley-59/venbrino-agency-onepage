@@ -25,6 +25,7 @@ router.get('/', (req, res) => {
 })
 
 router.post('/contact', async(req, res) => {
+    console.log(req.body)
     const { name, email, phone, whatsapp, subject, interest, message} = req.body ?? {}
     if (!name || !email || !interest) {
         return res.status(400).json({message: 'Name, email and interest are required.'})
@@ -39,6 +40,14 @@ router.post('/contact', async(req, res) => {
             subject: subject,
             html: `
                 <h3 style="margin-bottom: 20px;">You just received a message from ${name}</h3>
+                <ul>
+                    <li>Name: ${name}</li>
+                    <li>Phone: ${phone}</li>
+                    <li>Email: ${email}</li>
+                    <li>Whatsapp: ${whatsapp}</li>
+                    <li>Interest: ${interest}</li>
+                    <li>Subject: ${subject}</li>
+                </ul>
                 <p>${message}</p>
             `,
             text: message,

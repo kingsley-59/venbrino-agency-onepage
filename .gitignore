@@ -3,4 +3,4 @@
 .env
 
 mail.js
-./mail.js
+/mail.js

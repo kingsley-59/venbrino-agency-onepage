@@ -646,8 +646,8 @@
                <div class="col-lg-6 vcenter">
                   <div class="sec-heading our-app-d">
                      <span class="sub-heading mb15">Download Our App</span>
-                     <h2 class="mb15">We Are Partner With <span class="ree-text rt40">Top</span> <span class="ree-text rt40">Ventures</span></h2>
-                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis.</p>
+                     <h2 class="mb15">We Are Partners With <span class="ree-text rt40">Top</span> <span class="ree-text rt40">Ventures</span></h2>
+                     <!-- <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis.</p> -->
                      <div class="btn-sets mt40">
                         <a href="#" class="ree-btn  ree-btn-grdt1 mr20">Play Store <i class="fab fa-android ml10"></i></a>                         
                         <a href="#" class="ree-btn  ree-btn-grdt2 mr20">iOS Store <i class="fab fa-apple ml10"></i></a>
@@ -755,9 +755,11 @@
                      <div class="form-block">
                         <div class="form-head">
                            <h3>Please fill in the form below.</h3>
+                           <p id="feedback-form-error" class="text-danger fw-light"></p>
+                           <p id="feedback-form-success" class="text-success fw-light"></p>
                         </div>
                         <div class="form-body">
-                           <form action="/api/contact" method="post" name="feedback-form">
+                           <form id="feedback-form" name="feedback-form">
                               <div class="fieldsets row">
                                  <div class="col-md-6"><input type="text" placeholder="Full Name" name="name">	</div>
                                  <div class="col-md-6"><input type="email" placeholder="Email Address"
@@ -788,13 +790,13 @@
                               </div>
                               <div class="custom-control custom-checkbox">
                                  <input type="checkbox" class="custom-control-input" id="customCheck"
-                                    name="example1" checked="checked">
+                                    name="acceptTerms" checked="checked">
                                  <label class="custom-control-label label-f-form" for="customCheck">I agree to
                                  the <a href="javascript:void(0)">Terms &amp; Conditions</a> of
                                  Venbrino Agency.</label>
                               </div>
                               <div class="fieldsets mt20"> <button type="submit" name="submit"
-                                 class="ree-btn  ree-btn-grdt1 w-100">Send your inquiry <i
+                                 class="ree-btn  ree-btn-grdt1 w-100" id="feedback-submit">Send your inquiry <i
                                  class="fas fa-arrow-right fa-btn"></i></button> </div>
                               <p class="trm"><i class="fas fa-lock"></i>We hate spam, and we respect your privacy.
                               </p>

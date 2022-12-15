@@ -1,39 +1,45 @@
 const express = require('express')
 const router = express.Router()
-const nodemailer = require('nodemailer')
-const smtpTransport = require('nodemailer-smtp-transport')
-require('dotenv').config
-
-const smtpConfig = smtpTransport({
-    host: process.env.EMAIL_HOST,
-    secure: false,
-    tls: {
-        rejectUnauthorized: false
-    },
-    port: process.env.EMAIL_PORT ?? 587,
-    auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASSWORD
-    }
-})
-
-const transporter = nodemailer.createTransport(smtpConfig)
+const MailService = require('../service/MailService')
+const mailService = new MailService()
+require('dotenv').config()
 
 
 router.get('/', (req, res) => {
     res.status(200).json({message: 'Server is still under construction.'})
 })
 
+router.get('/sendmail', async function (req, res) {
+    console.log('sendmail request processing...')
+
+    try {
+        const info = await mailService.sendMail({
+            from: 'VenbrinoDevs <hello@venbrinodevs.com>',
+            sender: 'kingsleyakahibe@gmail.com',
+            to: 'divine10646@gmail.com',
+            replyTo: 'kingsleyakahibe@gmail.com',
+            subject: 'Test project subject',
+            html: '<h2>The project is still in test mode./n Stay tuned!<h2/>',
+        })
+        console.log('Info: ', info)
+        res.send('Email sent!')
+    } catch (error) {
+        console.log('Error', error)
+        res.send('An error occurred!')
+    }
+})
+
 router.post('/contact', async(req, res) => {
-    console.log(req.body)
+    // console.log(req.body)
+    console.log('sendmail request processing...')
     const { name, email, phone, whatsapp, subject, interest, message} = req.body ?? {}
     if (!name || !email || !interest) {
         return res.status(400).json({message: 'Name, email and interest are required.'})
     }
 
     try {
-        const info = await transporter.sendMail({
-            from: `${process.env.CONTACT_NAME} <${process.env.CONTACT_NAME}>`,
+        const info = await mailService.sendMail({
+            from: `${process.env.CONTACT_NAME} <${process.env.CONTACT_EMAIL}>`,
             sender: email,
             to: process.env.CONTACT_EMAIL ?? 'ifeanyiagalaba6@gmail.com',
             replyTo: email,
@@ -51,16 +57,12 @@ router.post('/contact', async(req, res) => {
                 <p>${message}</p>
             `,
             text: message,
-            envelope: {
-                from: email,
-                to: process.env.CONTACT_EMAIL ?? 'ifeanyiagalaba6@gmail.com'
-            }
         })
-        console.log({mailInfo: info})
-        res.status(200).send('Message send successfully. We will get back to you shortly')
+        console.log(info)
+        res.status(200).json({status: 'success', message: 'Message sent successfully. We will get back to you shortly'})
     } catch (error) {
-        console.log({error})
-        res.status(500).send('Something went wrong. Please try again.')
+        console.log(error)
+        res.status(500).json({status: 'failed', message: 'Something went wrong. Please try again.'})
     }
 
 })

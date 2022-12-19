@@ -772,14 +772,14 @@ position: relative;
     display: block;
     font-weight: 300;
     margin: 0 0 10px 0;
-    font-size: 17px;
+    font-size: 13px;
     letter-spacing: 1px;
 }
 .c-infot a i{    margin: 0 10px 0 0;}
 .c-infot a{
     display: inline-flex;
     background: #fff;
-    padding: 20px;
+    padding: 20px 10px;
     border-radius: 14px;
     width: 100%;
 }

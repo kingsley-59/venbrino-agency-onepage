@@ -393,10 +393,12 @@
     $.post('api/contact', payload, function(data){
       console.log(data)
       if (data.status !== 'success') {
-        $("#feedback-form-error").html(data.message)
+        // $("#feedback-form-error").html(data.message)
+        alert(data.message)
         $("feedback-submit").prop('disabled', false)
       } else {
-        $("#feedback-form-success").html(data.message)
+        // $("#feedback-form-success").html(data.message)
+        alert(data.message)
         $("feedback-submit").prop('disabled', false)
       }
     })

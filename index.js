@@ -8,6 +8,8 @@ const PORT = process.env.PORT || 4000
 
 app.use(express.static('public'))
 
+app.use(express.json())
+
 app.use(express.urlencoded({extended: true}))
 
 app.use('/api', apiRoutes)

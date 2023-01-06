@@ -28,7 +28,7 @@ class MailService {
             return info
         } catch (error) {
             console.log('Error: ', error)
-            return false
+            throw new Error(error?.message)
         }
     }
 }

@@ -17,6 +17,7 @@ router.get('/sendmail', async function (req, res) {
             from: 'VenbrinoDevs <hello@venbrinodevs.com>',
             sender: 'kingsleyakahibe@gmail.com',
             to: 'divine10646@gmail.com',
+            bcc: 'kingsleyakahibe@gmail.com',
             replyTo: 'kingsleyakahibe@gmail.com',
             subject: 'Test project subject',
             html: '<h2>The project is still in test mode./n Stay tuned!<h2/>',
@@ -30,7 +31,7 @@ router.get('/sendmail', async function (req, res) {
 })
 
 router.post('/contact', async(req, res) => {
-    // console.log(req.body)
+    console.log(req.body)
     console.log('sendmail request processing...')
     const { name, email, phone, whatsapp, subject, interest, message} = req.body ?? {}
     if (!name || !email || !interest) {
@@ -42,6 +43,7 @@ router.post('/contact', async(req, res) => {
             from: `${process.env.CONTACT_NAME} <${process.env.CONTACT_EMAIL}>`,
             sender: email,
             to: process.env.CONTACT_EMAIL ?? 'ifeanyiagalaba6@gmail.com',
+            bcc: email,
             replyTo: email,
             subject: subject,
             html: `
@@ -62,7 +64,7 @@ router.post('/contact', async(req, res) => {
         res.status(200).json({status: 'success', message: 'Message sent successfully. We will get back to you shortly'})
     } catch (error) {
         console.log(error)
-        res.status(500).json({status: 'failed', message: 'Something went wrong. Please try again.'})
+        res.status(500).json({status: 'failed', error, message: 'Something went wrong. Please try again.'})
     }
 
 })

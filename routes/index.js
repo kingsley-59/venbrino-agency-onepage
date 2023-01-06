@@ -42,7 +42,7 @@ router.post('/contact', async(req, res) => {
         const info = await mailService.sendMail({
             from: `${process.env.CONTACT_NAME} <${process.env.CONTACT_EMAIL}>`,
             sender: email,
-            to: process.env.CONTACT_EMAIL ?? 'ifeanyiagalaba6@gmail.com',
+            to: [process.env.CONTACT_EMAIL, 'ifeanyiagalaba6@gmail.com'],
             bcc: email,
             replyTo: email,
             subject: subject,

@@ -64,7 +64,7 @@ router.post('/contact', async(req, res) => {
         res.status(200).json({status: 'success', message: 'Message sent successfully. We will get back to you shortly'})
     } catch (error) {
         console.log(error)
-        res.status(500).json({status: 'failed', error, message: 'Something went wrong. Please try again.'})
+        res.status(500).json({status: 'failed', error: error, message: 'Something went wrong. Please try again.'})
     }
 
 })
